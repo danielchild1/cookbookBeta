@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "style.css",
+	"sources": [
+		"../../src/app/assets/stylesheets/style.scss"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,IAAI,CAAC;EACH,SAAS,EAAE,IAAI;EACf,gBAAgB,EAAE,OAAkB,GACrC;;AAED,AAAA,MAAM,CAAA;EACJ,KAAK,EAAE,KAAK;EACZ,UAAU,EAAE,KAAK;EACjB,MAAM,EAAE,IAAI,GACb"
+}
