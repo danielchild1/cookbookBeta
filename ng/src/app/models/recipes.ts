@@ -16,4 +16,7 @@ export class Recipe{
     isSalad: boolean
     isSoup: boolean
     isSideDish: boolean
+    //Im not sure if the is the best way to do this
+    ingredients: string[]
+    directions: string[]
 }
