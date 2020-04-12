@@ -10,7 +10,7 @@ export function configureRoutes(app){
   })
   router.get('/', indexPage)
 
-  //TODO
+  
 
 
   app.use('/', router)

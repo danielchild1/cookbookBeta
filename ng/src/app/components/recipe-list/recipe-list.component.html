@@ -4,5 +4,8 @@
             <button class="button is-primary">Add Recipe</button><!--need to add routing-->
         </div>
     </div>
-    <recipe-list-item [recipe]="recipe" ></recipe-list-item>
+    <div class="columns is-multiline">
+        <recipe-list-item [recipe]="recipe" class="column is-one-third" *ngFor="let r of sortRecipes(recipe$ | async)"></recipe-list-item>
+    </div>
+    
 </div>
