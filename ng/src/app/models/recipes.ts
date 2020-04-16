@@ -8,15 +8,8 @@ export class Recipe{
     image: string
     added_at: Date
     updated_at: Date
-    isApp: boolean
-    isBreakfast: boolean
-    isDessert: boolean
-    isDrink: boolean
-    isMainDish: boolean
-    isSalad: boolean
-    isSoup: boolean
-    isSideDish: boolean
     //Im not sure if the is the best way to do this
     ingredients: string[]
     directions: string[]
+    tag: string[]
 }

@@ -14,7 +14,7 @@ export const allRecipesAPI = (req, res, next) =>{
 }
 
 export const oneRecipeAPI = (req, res, next) =>{
-    Course.findOne({id: req.params.id}).exec((err, recipe)=>{
+    Recipe.findOne({id: req.params.id}).exec((err, recipe)=>{
         if(err){
             res.json({success: false, message: 'Failed query'})
             res.end()
@@ -39,5 +39,23 @@ export const createRecipeAPI = (req, res, next) =>{
 }
 
 export const changeRecipeAPI = (req, res, next) => {
-    
+    Recipe.findOne({id: req.params.id}).exec((err, recipe)=>{
+        if(err){
+            res.json({success: false, message: 'Failed query'})
+            res.end()
+        }
+        else{
+            Object.assign(recipe, req.body)
+            Recipe.save(err => {
+                if(err){
+                    res.json({success: false, message: 'unable to save'})
+                }
+                else{
+                    res.end()
+                }
+            })
+            res.write(JSON.stringify(recipe))
+            res.end()
+        }
+    })
 }

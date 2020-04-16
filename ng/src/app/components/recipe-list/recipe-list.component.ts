@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe} from '../../models/recipes';
 import { Observable } from 'rxjs';
+import { Recipe} from '../../models/recipes';
+import {RecipeService} from 'src/app/services/recipe.service';
+
 
 
 @Component({
@@ -10,11 +12,11 @@ import { Observable } from 'rxjs';
 })
 export class RecipeListComponent implements OnInit {
   sortRecipeBy: string = 'abc'
-  recipes$: Observable<Recipe>
-  constructor() { }
+  recipes$: Observable<Recipe[]>
+  constructor(private RecipeService: RecipeService) { }
 
   ngOnInit() {
-    //todo: this.recipes$ = this.RecipeService.getRecipes()
+    this.recipes$ = this.RecipeService.getRecipes()
   }
 
   sortBy(sort){

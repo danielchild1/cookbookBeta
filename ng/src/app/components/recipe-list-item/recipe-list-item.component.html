@@ -1,1 +1,15 @@
-<p>recipe-list-item works!</p>
+<a routerLink="/recipes/{{recipe.id}}/">
+<div class="card" id={{recipe.id}}>
+    <!--Image layout-->
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="{{recipe.image}}" alt="{{recipe.image}} picture">
+    </figure>
+  </div>
+
+  <div class="card-content">
+    <div class="content">
+        <p class="title">{{ recipe.title }}</p>
+    </div>
+</div>
+</a>

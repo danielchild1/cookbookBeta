@@ -1,0 +1,27 @@
+<div class="container" *ngIf="recipe$ | async as recipe">
+    <img src="{{recipe.image}}" alt="{{recipe.title}}">
+    <div class="has-text-centered">
+        <h1 class="title">{{recipe.title}}</h1>
+        <ul class="cookTime">
+            <li ng-hide="recipe.prepTime == null">Prep Time: {{recipe.prepTime}}</li>
+            <li ng-hide="recipe.cookTime == null">Cook Time: {{recipe.cookTime}}</li>
+            <li ng-hide="recipe.servings == null">Servings: {{recipe.servings}}</li>
+        </ul>
+    </div>
+    <!--populate the list of ingredients-->
+    <h3 class="subtitle">Ingredients</h3>
+    <ul>
+        <li *ngFor="let ingredient of recipe.Ingredients">{{ingredient}}</li>
+    </ul>
+    <!--populate the list of directions-->
+    <h3 class="subtitle">Direction</h3>
+    <ol>
+        <li *ngFor="let dir of recipe.Directions">{{dir}}</li>
+    </ol>
+
+    
+
+</div>
+<!--cookTime: String,
+    prepTime: String,
+    servings: String,-->
