@@ -4,7 +4,7 @@ import { RecipeService } from 'src/app/services/recipe.service';
 
 
 @Component({
-  selector: 'app-recipe-list-item',
+  selector: 'recipe-list-item',
   templateUrl: './recipe-list-item.component.html',
   styleUrls: ['./recipe-list-item.component.scss']
 })

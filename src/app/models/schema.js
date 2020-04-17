@@ -2,7 +2,6 @@ import mongoose from "mongoose"
 const Schema = mongoose.Schema
 
 let recipeSchema = new Schema({
-    id: Number,
     title: String,
     description: String,
     cookTime: String,
@@ -16,8 +15,8 @@ let recipeSchema = new Schema({
     //ingredients: [{type: Schema.Types.ObjectId, ref: "Ingredient"}],
    /// directions: [{type: Schema.Types.ObjectId, ref: "Direction"}],
     //tags: [{type: Schema.Types.ObjectId, ref: "Tag"}]
-    ingredients: [{type: String, ref: "Ingredients"}],
-    directions: [{type: String, ref: "Direction"}],
+    ingredients: [{type: String, ref: "ingredients"}],
+    directions: [{type: String, ref: "direction"}],
     tags: [{type: String, ref: "tag"}]
 
 })

@@ -49,6 +49,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/recipe-fourm/recipe-fourm.component.html":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/recipe-fourm/recipe-fourm.component.html ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n  <div *ngIf=\"isEdit; then editRecipe; else addRecipe\"></div>\n  <ng-template #editRecipe>\n    <p class=\"title\">Edit Recipe</p>\n  </ng-template>\n  <ng-template #addRecipe>\n    <p class=\"title\">Add Recipe</p>\n  </ng-template>\n\n  <form #f=\"ngForm\" [formGroup]=\"recipeFourm\" (ngSubmit)=\"submitForm(f)\">\n    <!--Title-->\n    <div class=\"field\">\n      <label for=\"title\" class=\"label\">Title</label>\n      <div class=\"control\">\n        <input type=\"text\" class=\"input\" formControlName=\"title\" />\n      </div>\n      <p class=\"help is-danger\" *ngIf=\"f.submitted && title.invalid\">\n        Recipe needs a name\n      </p>\n    </div>\n\n    <div class=\"columns\">\n      <!--prepTime-->\n      <div class=\"field column\">\n        <label for=\"prepTime\" class=\"label\">Prep Time</label>\n        <div class=\"control\">\n          <input type=\"text\" class=\"input\" formControlName=\"prepTime\" />\n        </div>\n      </div>\n\n      <!--cooktime-->\n      <div class=\"field column\">\n        <label for=\"cookTime\" class=\"label\">Cook Time</label>\n        <div class=\"control\">\n          <input type=\"text\" class=\"input\" formControlName=\"cookTime\" />\n        </div>\n      </div>\n\n      <!--servings-->\n      <div class=\"field column\">\n        <label for=\"servings\" class=\"label\">Servings</label>\n        <div class=\"control\">\n          <input type=\"text\" class=\"input\" formControlName=\"servings\" />\n        </div>\n      </div>\n    </div>\n\n    <!--Image-->\n    <div class=\"field\">\n      <label for=\"image\" class=\"label\">Image</label>\n      <div class=\"control\">\n        <input type=\"text\" class=\"input\" formControlName=\"image\" />\n      </div>\n      <p class=\"help is-danger\" *ngIf=\"f.submitted && image.invalid\">\n        Recipe needs an image *image upload coming soon*\n      </p>\n    </div>\n\n    <!--ingredients-->\n    <h1 class=\"subtitle\">Ingredients</h1>\n    <div ng-controller=\"ingredient\">\n      <div ng-repeat=\"ingredient in recipe.ingredients\">\n        <!--ingredient-->\n        <div class=\"field\">\n          <div class=\"control\">\n            <input type=\"text\" class=\"input\" formControlName=\"ingredient\" ng-model=\"ingredient\" />\n          </div>\n        </div>\n\n      </div>\n      <button class=\"button\" ng-click=\"addIngredient()\">Add Ingredient</button>\n    \n\n    <!--directions-->\n    <h1 class=\"subtitle\">Directions</h1>\n    <div ng-controller=\"direction\">\n      <div ng-repeat=\"direction in recipe.directions\">\n        <!--directions-->\n        <div class=\"field\">\n          <div class=\"control\">\n            <input type=\"text\" class=\"input\" formControlName=\"direction\" ng-model=\"direction\"/>\n          </div>\n        </div>\n\n      </div>\n      <button class=\"button\" ng-click=\"addDirection()\">Add Direction</button>\n    </div>\n    </div>\n\n    <!--checkboxes-->\n    <h1 class=\"subtitle\">Select all that apply:</h1>\n    <div class=\"columns\">\n        <div class=\"column\">\n            <div class=\"field\">\n                <label for=\"appatizer\" class=\"label\">Appetizer</label>\n                <div class=\"control\">\n                  <input type=\"checkbox\" class=\"input\" formControlName=\"appatizer\" />\n                </div>\n            </div>\n        \n            <div class=\"field\">\n                <label for=\"breakfast\" class=\"label\">Breakfast</label>\n                <div class=\"control\">\n                  <input type=\"checkbox\" class=\"input\" formControlName=\"breakfast\" />\n                </div>\n            </div>\n        \n            <div class=\"field\">\n                <label for=\"dessert\" class=\"label\">Dessert</label>\n                <div class=\"control\">\n                  <input type=\"checkbox\" class=\"input\" formControlName=\"dessert\" />\n                </div>\n            </div>\n        </div>\n        <div class=\"column\">\n            <div class=\"field\">\n                <label for=\"mainDish\" class=\"label\">Main Dish</label>\n                <div class=\"control\">\n                  <input type=\"checkbox\" class=\"input\" formControlName=\"mainDish\" />\n                </div>\n            </div>\n        \n            <div class=\"field\">\n                <label for=\"salad\" class=\"label\">Salad</label>\n                <div class=\"control\">\n                  <input type=\"checkbox\" class=\"input\" formControlName=\"salad\" />\n                </div>\n            </div>\n        \n            <div class=\"field\">\n                <label for=\"soup\" class=\"label\">soup</label>\n                <div class=\"control\">\n                  <input type=\"checkbox\" class=\"input\" formControlName=\"soup\" />\n                </div>\n            </div>\n        </div>\n    \n        \n    \n        <div class=\"field\">\n            <div class=\"control\">\n                <button class=\"button is-success\" type=\"submit\"></button>\n            </div>\n        </div>\n    </div>\n    \n  </form>\n</div>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/recipe-list-item/recipe-list-item.component.html":
 /*!*******************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/recipe-list-item/recipe-list-item.component.html ***!
@@ -378,13 +391,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
 
 
 let AppComponent = class AppComponent {
-    constructor() {
+    constructor(router) {
+        this.router = router;
         this.title = 'recipe-front-end';
     }
 };
+AppComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-root',
@@ -410,11 +429,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _components_recipe_list_recipe_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/recipe-list/recipe-list.component */ "./src/app/components/recipe-list/recipe-list.component.ts");
-/* harmony import */ var _components_recipe_list_item_recipe_list_item_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/recipe-list-item/recipe-list-item.component */ "./src/app/components/recipe-list-item/recipe-list-item.component.ts");
-/* harmony import */ var _components_recipe_detail_recipe_detail_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/recipe-detail/recipe-detail.component */ "./src/app/components/recipe-detail/recipe-detail.component.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _components_recipe_list_recipe_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/recipe-list/recipe-list.component */ "./src/app/components/recipe-list/recipe-list.component.ts");
+/* harmony import */ var _components_recipe_list_item_recipe_list_item_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/recipe-list-item/recipe-list-item.component */ "./src/app/components/recipe-list-item/recipe-list-item.component.ts");
+/* harmony import */ var _components_recipe_detail_recipe_detail_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/recipe-detail/recipe-detail.component */ "./src/app/components/recipe-detail/recipe-detail.component.ts");
+/* harmony import */ var _components_recipe_fourm_recipe_fourm_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/recipe-fourm/recipe-fourm.component */ "./src/app/components/recipe-fourm/recipe-fourm.component.ts");
+/* harmony import */ var _services_recipe_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/recipe.service */ "./src/app/services/recipe.service.ts");
+
+
+
+
+
+
 
 
 
@@ -428,17 +459,23 @@ let AppModule = class AppModule {
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-            _components_recipe_list_recipe_list_component__WEBPACK_IMPORTED_MODULE_5__["RecipeListComponent"],
-            _components_recipe_list_item_recipe_list_item_component__WEBPACK_IMPORTED_MODULE_6__["RecipeListItemComponent"],
-            _components_recipe_detail_recipe_detail_component__WEBPACK_IMPORTED_MODULE_7__["RecipeDetailComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"],
+            _components_recipe_list_recipe_list_component__WEBPACK_IMPORTED_MODULE_9__["RecipeListComponent"],
+            _components_recipe_list_item_recipe_list_item_component__WEBPACK_IMPORTED_MODULE_10__["RecipeListItemComponent"],
+            _components_recipe_detail_recipe_detail_component__WEBPACK_IMPORTED_MODULE_11__["RecipeDetailComponent"],
+            _components_recipe_fourm_recipe_fourm_component__WEBPACK_IMPORTED_MODULE_12__["RecipeFourmComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"]
+            _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"],
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"],
+            ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrModule"].forRoot(),
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"]
         ],
-        providers: [],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
+        providers: [_services_recipe_service__WEBPACK_IMPORTED_MODULE_13__["RecipeService"]],
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
     })
 ], AppModule);
 
@@ -509,6 +546,133 @@ RecipeDetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/components/recipe-fourm/recipe-fourm.component.scss":
+/*!*********************************************************************!*\
+  !*** ./src/app/components/recipe-fourm/recipe-fourm.component.scss ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVjaXBlLWZvdXJtL3JlY2lwZS1mb3VybS5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/components/recipe-fourm/recipe-fourm.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/components/recipe-fourm/recipe-fourm.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: RecipeFourmComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RecipeFourmComponent", function() { return RecipeFourmComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_services_recipe_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/recipe.service */ "./src/app/services/recipe.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+
+
+
+
+
+let RecipeFourmComponent = class RecipeFourmComponent {
+    constructor(route, RecipeService, fb, router) {
+        this.route = route;
+        this.RecipeService = RecipeService;
+        this.fb = fb;
+        this.router = router;
+        this.numIngredients = 0;
+        this.numDirections = 0;
+        this.Note = function ($scope) {
+            $scope.ingredients = [];
+            $scope.directions = [];
+            $scope.addIngredients = function () {
+                $scope.ingredients.push({});
+                this.numIngredients += 1;
+            };
+            $scope.addDirections = function () {
+                $scope.directions.push({});
+                this.numDirections += 1;
+            };
+        };
+    }
+    ngOnInit() {
+        this.recipeForm = this.fb.group({
+            id: [null],
+            title: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
+            cookTime: [null],
+            prepTime: [null],
+            servings: [null],
+            image: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
+            appatizer: [null],
+            breakfast: [null],
+            dessert: [null],
+            mainDish: [null],
+            salad: [null],
+            soup: [null],
+        });
+        this.isEdit = !!this.route.snapshot.params["id"];
+        if (this.isEdit) {
+            this.RecipeService.getRecipe(this.route.snapshot.params["id"]).subscribe((c) => this.recipeForm.patchValue(c));
+        }
+    }
+    get title() { return this.recipeForm.get('title'); }
+    get cookTime() { return this.recipeForm.get('cookTime'); }
+    get prepTime() { return this.recipeForm.get('prepTime'); }
+    get servings() { return this.recipeForm.get('servings'); }
+    get appetizer() { return this.recipeForm.get('appetizer'); }
+    get breakfast() { return this.recipeForm.get('breakfast'); }
+    get dessert() { return this.recipeForm.get('dessert'); }
+    get mainDish() { return this.recipeForm.get('mainDish'); }
+    get salad() { return this.recipeForm.get('salad'); }
+    get soup() { return this.recipeForm.get('soup'); }
+    submitForm(f) {
+        if (f.valid) {
+            const rip = Object.assign({}, this.recipeForm.value);
+            rip.updated_at = new Date();
+            if (this.breakfast) {
+                rip.tag.push("breakfast");
+            }
+            if (this.appetizer) {
+                rip.tag.push("appetizer");
+            }
+            if (this.dessert) {
+                rip.tag.push("dessert");
+            }
+            if (this.mainDish) {
+                rip.tag.push("mainDish");
+            }
+            if (this.salad) {
+                rip.tag.push("salad");
+            }
+            if (this.soup) {
+                rip.tag.push("soup");
+            }
+        }
+    }
+};
+RecipeFourmComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_services_recipe_service__WEBPACK_IMPORTED_MODULE_3__["RecipeService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+RecipeFourmComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: "recipe-fourm",
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./recipe-fourm.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/recipe-fourm/recipe-fourm.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./recipe-fourm.component.scss */ "./src/app/components/recipe-fourm/recipe-fourm.component.scss")).default]
+    })
+], RecipeFourmComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/recipe-list-item/recipe-list-item.component.scss":
 /*!*****************************************************************************!*\
   !*** ./src/app/components/recipe-list-item/recipe-list-item.component.scss ***!
@@ -557,7 +721,7 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 ], RecipeListItemComponent.prototype, "select", void 0);
 RecipeListItemComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-recipe-list-item',
+        selector: 'recipe-list-item',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./recipe-list-item.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/recipe-list-item/recipe-list-item.component.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./recipe-list-item.component.scss */ "./src/app/components/recipe-list-item/recipe-list-item.component.scss")).default]
     })

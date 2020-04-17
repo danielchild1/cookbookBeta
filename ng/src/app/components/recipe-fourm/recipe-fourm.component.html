@@ -1,0 +1,148 @@
+<div class="container">
+  <div *ngIf="isEdit; then editRecipe; else addRecipe"></div>
+  <ng-template #editRecipe>
+    <p class="title">Edit Recipe</p>
+  </ng-template>
+  <ng-template #addRecipe>
+    <p class="title">Add Recipe</p>
+  </ng-template>
+
+  <form #f="ngForm" [formGroup]="recipeFourm" (ngSubmit)="submitForm(f)">
+    <!--Title-->
+    <div class="field">
+      <label for="title" class="label">Title</label>
+      <div class="control">
+        <input type="text" class="input" formControlName="title" />
+      </div>
+      <p class="help is-danger" *ngIf="f.submitted && title.invalid">
+        Recipe needs a name
+      </p>
+    </div>
+
+    <div class="columns">
+      <!--prepTime-->
+      <div class="field column">
+        <label for="prepTime" class="label">Prep Time</label>
+        <div class="control">
+          <input type="text" class="input" formControlName="prepTime" />
+        </div>
+      </div>
+
+      <!--cooktime-->
+      <div class="field column">
+        <label for="cookTime" class="label">Cook Time</label>
+        <div class="control">
+          <input type="text" class="input" formControlName="cookTime" />
+        </div>
+      </div>
+
+      <!--servings-->
+      <div class="field column">
+        <label for="servings" class="label">Servings</label>
+        <div class="control">
+          <input type="text" class="input" formControlName="servings" />
+        </div>
+      </div>
+    </div>
+
+    <!--Image-->
+    <div class="field">
+      <label for="image" class="label">Image</label>
+      <div class="control">
+        <input type="text" class="input" formControlName="image" />
+      </div>
+      <p class="help is-danger" *ngIf="f.submitted && image.invalid">
+        Recipe needs an image *image upload coming soon*
+      </p>
+    </div>
+
+    <!--ingredients-->
+    <h1 class="subtitle">Ingredients</h1>
+    <div ng-controller="ingredient">
+      <div ng-repeat="ingredient in recipe.ingredients">
+        <!--ingredient-->
+        <div class="field">
+          <div class="control">
+            <input type="text" class="input" formControlName="ingredient" ng-model="ingredient" />
+          </div>
+        </div>
+
+      </div>
+      <button class="button" ng-click="addIngredient()">Add Ingredient</button>
+    
+
+    <!--directions-->
+    <h1 class="subtitle">Directions</h1>
+    <div ng-controller="direction">
+      <div ng-repeat="direction in recipe.directions">
+        <!--directions-->
+        <div class="field">
+          <div class="control">
+            <input type="text" class="input" formControlName="direction" ng-model="direction"/>
+          </div>
+        </div>
+
+      </div>
+      <button class="button" ng-click="addDirection()">Add Direction</button>
+    </div>
+    </div>
+
+    <!--checkboxes-->
+    <h1 class="subtitle">Select all that apply:</h1>
+    <div class="columns">
+        <div class="column">
+            <div class="field">
+                <label for="appatizer" class="label">Appetizer</label>
+                <div class="control">
+                  <input type="checkbox" class="input" formControlName="appatizer" />
+                </div>
+            </div>
+        
+            <div class="field">
+                <label for="breakfast" class="label">Breakfast</label>
+                <div class="control">
+                  <input type="checkbox" class="input" formControlName="breakfast" />
+                </div>
+            </div>
+        
+            <div class="field">
+                <label for="dessert" class="label">Dessert</label>
+                <div class="control">
+                  <input type="checkbox" class="input" formControlName="dessert" />
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="field">
+                <label for="mainDish" class="label">Main Dish</label>
+                <div class="control">
+                  <input type="checkbox" class="input" formControlName="mainDish" />
+                </div>
+            </div>
+        
+            <div class="field">
+                <label for="salad" class="label">Salad</label>
+                <div class="control">
+                  <input type="checkbox" class="input" formControlName="salad" />
+                </div>
+            </div>
+        
+            <div class="field">
+                <label for="soup" class="label">soup</label>
+                <div class="control">
+                  <input type="checkbox" class="input" formControlName="soup" />
+                </div>
+            </div>
+        </div>
+    
+        
+    
+        <div class="field">
+            <div class="control">
+                <button class="button is-success" type="submit"></button>
+            </div>
+        </div>
+    </div>
+    
+  </form>
+</div>
