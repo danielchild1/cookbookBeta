@@ -12,6 +12,10 @@ import { RecipeListItemComponent } from './components/recipe-list-item/recipe-li
 import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.component';
 import { RecipeFourmComponent } from './components/recipe-fourm/recipe-fourm.component';
 import { RecipeService } from './services/recipe.service';
+import { UserRegisterComponent } from './components/user-register/user-register.component';
+import { UserSigninComponent } from './components/user-signin/user-signin.component';
+import { UserService } from './services/user.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,9 @@ import { RecipeService } from './services/recipe.service';
     RecipeListComponent,
     RecipeListItemComponent,
     RecipeDetailComponent,
-    RecipeFourmComponent
+    RecipeFourmComponent,
+    UserRegisterComponent,
+    UserSigninComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,7 @@ import { RecipeService } from './services/recipe.service';
     ToastrModule.forRoot(),
     HttpClientModule
   ],
-  providers: [RecipeService],
+  providers: [RecipeService, UserService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
