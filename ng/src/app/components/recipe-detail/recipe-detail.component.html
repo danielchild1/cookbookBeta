@@ -19,7 +19,7 @@
         <li *ngFor="let dir of recipe.Directions">{{dir}}</li>
     </ol>
 
-    <a routerLink="/edit" class="button">Edit Recipe</a>
+    <a routerLink="/recipes/{{recipe.id}}/edit" class="button">Edit Recipe</a>
 
 </div>
 <!--cookTime: String,

@@ -29,6 +29,7 @@
             ],
             "styles": [
               "src/styles.scss",
+              "Node_modules/bulma/bulma.sass",
               "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []

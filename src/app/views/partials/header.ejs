@@ -1,4 +1,5 @@
 <div id="mySidenav" class="sidenav">
+  <a href="#"> </a>
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="#">Appetizers</a>
   <a href="#">Breakfast</a>
@@ -6,15 +7,16 @@
   <a href="#">Main Dishes</a>
   <a href="#">Salads</a>
   <a href="#">Soups</a>
-  <a routerLink="/signin" class="button is-primary">Sign In</a>
-  <a routerLink="/register" class="button is-success">Register</a>
+  <a href="/signin" class="button is-primary">Sign In</a>
+  <a href="/register" class="button is-success">Register</a>
 </div>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" routerLink="/recipes" style="font-size:30px">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    <a class="navbar-item" href="/recipes" style="font-size:30px">
       <!--<img src="images/logo.svg" alt="Recipes" width="112" height="28">-->
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      
       Child Family Cookbook
     </a>
 
