@@ -1,35 +1,35 @@
 <div class="container">
-    <p class="title">User sign in</p>
-    <p>If you don't have a account please 
-      <a routerLink="/register" class="button is-success">Register</a>
-    </p>
-    <form #f="ngForm" (ngSubmit)="submitForm(f)">
-      <div class="field">
-        <label for="email" class="label">Email</label>
-        <div class="control">
-          <input type="email" class="input" name="email" id="email" 
-            required #email="ngModel" [(ngModel)]="user.email">
-        </div>
-        <p class="help is-danger" *ngIf="f.submitted && email.invalid">
-          Email is required
-        </p>
+  <p class="title">User sign in</p>
+  <p>If you don't have a account please 
+    <a routerLink="/register" class="button is-success">Register</a>
+  </p>
+  <form #f="ngForm" (ngSubmit)="submitForm(f)">
+    <div class="field">
+      <label for="username" class="label">Username</label>
+      <div class="control">
+        <input type="text" class="input" name="username" id="username" 
+          required #username="ngModel" [(ngModel)]="user.username">
       </div>
-      <div class="field">
-        <label for="password" class="label">Password</label>
-        <div class="control">
-          <input type="password" class="input" name="password" id="password" 
-            required #password="ngModel" [(ngModel)]="user.password">
-        </div>
-        <p class="help is-danger" *ngIf="f.submitted && password.invalid">
-          Password is required
-        </p>
+      <p class="help is-danger" *ngIf="f.submitted && username.invalid">
+        Username is required
+      </p>
+    </div>
+    <div class="field">
+      <label for="password" class="label">Password</label>
+      <div class="control">
+        <input type="password" class="input" name="password" id="password" 
+          required #password="ngModel" [(ngModel)]="user.password">
       </div>
-  
-      <div class="field">
-        <div class="control">
-          <button class="button is-primary">Submit</button>
-          <button class="button" routerLink="/recipes">Cancel</button>
-        </div>
+      <p class="help is-danger" *ngIf="f.submitted && password.invalid">
+        Password is required
+      </p>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary">Submit</button>
+        <button class="button" routerLink="/recipes">Cancel</button>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
+</div>

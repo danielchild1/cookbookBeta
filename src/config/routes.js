@@ -22,9 +22,9 @@ export function configureRoutes(app){
   //end points
   router.get('/api/recipes', allRecipesAPI)
   router.get('/api/recipes/:id', oneRecipeAPI)
-  router.post('/api/recipes', createRecipeAPI)
-  router.put('/api/recipes/:id',  changeRecipeAPI)
-  //requireSignIn,
+  router.post('/api/recipes', requireSignIn,createRecipeAPI)
+  router.put('/api/recipes/:id', requireSignIn, changeRecipeAPI)
+  
   //user signin
   router.post('/api/users/register', registerUserAPI)
   router.post('/api/users/signin', signUserInAPI)

@@ -52,7 +52,7 @@
         <input type="text" class="input" formControlName="image" />
       </div>
       <p class="help is-danger" *ngIf="f.submitted && image.invalid">
-        Recipe needs an image *image upload coming soon*
+        Recipe needs an image: image upload coming soon
       </p>
     </div>
 
@@ -78,58 +78,13 @@
       </p>
     </div>
     
-    <!--checkboxes-->
-    <h1 class="subtitle">Select all that apply:</h1>
-    <div class="columns">
-        <div class="column">
-            <div class="field">
-                <label for="appetizer" class="label">Appetizer</label>
-                <div class="control">
-                  <input type="checkbox" class="checkbox" formControlName="appetizer" />
-                </div>
-            </div>
-        
-            <div class="field">
-                <label for="breakfast" class="label">Breakfast</label>
-                <div class="control">
-                  <input type="checkbox" class="checkbox" formControlName="breakfast" />
-                </div>
-            </div>
-        
-            <div class="field">
-                <label for="dessert" class="label">Dessert</label>
-                <div class="control">
-                  <input type="checkbox" class="checkbox" formControlName="dessert" />
-                </div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="field">
-                <label for="mainDish" class="label">Main Dish</label>
-                <div class="control">
-                  <input type="checkbox" class="checkbox" formControlName="mainDish" />
-                </div>
-            </div>
-        
-            <div class="field">
-                <label for="salad" class="label">Salad</label>
-                <div class="control">
-                  <input type="checkbox" class="checkbox" formControlName="salad" />
-                </div>
-            </div>
-        
-            <div class="field">
-                <label for="soup" class="label">soup</label>
-                <div class="control">
-                  <input type="checkbox" class="checkbox" formControlName="soup" />
-                </div>
-            </div>
-        </div>
-    
-        
-    
-        
-    </div>
+    <h3 class="subtitle is-danger">Comming Soon:</h3>
+    <ul>
+      <li>ingredient component</li>
+      <li>direction component</li>
+      <li>image upload feature</li>
+    </ul>
+
     <div class="field">
       <div class="control">
           <button class="button is-success" type="submit">Submit</button>

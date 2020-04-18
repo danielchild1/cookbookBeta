@@ -4,8 +4,11 @@ import { User } from '../models/user'
 export const registerUserAPI = (req, res, next) => {
   let user = new User
   user.firstName = req.body.firstName
+  user.lastName = req.body.lastName
   user.email = req.body.email
+  user.username = req.body.username
   user.setPassword(req.body.password)
+
   user.save(err => {
     if(err){
       res.json({success: false, message: "Unable to register user"})

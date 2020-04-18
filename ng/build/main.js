@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" *ngIf=\"recipe$ | async as r\">\n    <img class= \"is-2by1\" src=\"{{r.image}}\" alt=\"{{r.title}}\">\n    <div class=\"has-text-centered\">\n        <h1 class=\"title\">{{r.title}}</h1>\n        <ul class=\"cookTime\">\n            <li ng-hide=\"r.prepTime == null\"><strong>Prep Time:</strong> {{r.prepTime}}</li>\n            <li ng-hide=\"r.cookTime == null\"><strong>Cook Time:</strong> {{r.cookTime}}</li>\n            <li ng-hide=\"r.servings == null\"><strong>Servings:</strong> {{r.servings}}</li>\n        </ul>\n    </div>\n    <!--populate the list of ingredients-->\n    <h3 class=\"subtitle\">Ingredients</h3>\n    <p>{{r.ingredients}}</p>\n    <!--populate the list of directions-->\n    <h3 class=\"subtitle\">Directions</h3>\n    <p>{{r.directions}}</p>\n\n    <a routerLink=\"/recipes/{{r.id}}/edit\" class=\"button\">Edit Recipe</a>\n\n</div>\n<!--cookTime: String,\n    prepTime: String,\n    servings: String,-->");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" *ngIf=\"recipe$ | async as r\">\n    <img class= \"is-2by1\" src=\"{{r.image}}\" alt=\"{{r.title}}\">\n    <div class=\"has-text-centered\">\n        <h1 class=\"title\">{{r.title}}</h1>\n        <ul class=\"cookTime\">\n            <li ng-hide=\"r.prepTime == null\"><strong>Prep Time:</strong> {{r.prepTime}}</li>\n            <li ng-hide=\"r.cookTime == null\"><strong>Cook Time:</strong> {{r.cookTime}}</li>\n            <li ng-hide=\"r.servings == null\"><strong>Servings:</strong> {{r.servings}}</li>\n        </ul>\n    </div>\n    <!--populate the list of ingredients-->\n    <h3 class=\"subtitle is-3\">Ingredients</h3>\n    <p>{{r.ingredients}}</p>\n    <!--populate the list of directions-->\n    <h3 class=\"subtitle is-3\">Directions</h3>\n    <p>{{r.directions}}</p>\n\n    <a routerLink=\"/recipes/{{r.id}}/edit\" class=\"button pad is-warning\">Edit Recipe</a>\n\n</div>\n<!--cookTime: String,\n    prepTime: String,\n    servings: String,-->");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n  <div *ngIf=\"isEdit; then editRecipe; else addRecipe\"></div>\n  <ng-template #editRecipe>\n    <p class=\"title\">Edit Recipe</p>\n  </ng-template>\n  <ng-template #addRecipe>\n    <p class=\"title\">Add Recipe</p>\n  </ng-template>\n\n  <form #f=\"ngForm\" [formGroup]=\"recipeForm\" (ngSubmit)=\"submitForm(f)\">\n    <!--Title-->\n    <div class=\"field\">\n      <label for=\"title\" class=\"label\">Title</label>\n      <div class=\"control\">\n        <input type=\"text\" class=\"input\" formControlName=\"title\" />\n      </div>\n      <p class=\"help is-danger\" *ngIf=\"f.submitted && title.invalid\">\n        Recipe needs a name\n      </p>\n    </div>\n\n    <div class=\"columns\">\n      <!--prepTime-->\n      <div class=\"field column\">\n        <label for=\"prepTime\" class=\"label\">Prep Time</label>\n        <div class=\"control\">\n          <input type=\"text\" class=\"input\" formControlName=\"prepTime\" />\n        </div>\n      </div>\n\n      <!--cooktime-->\n      <div class=\"field column\">\n        <label for=\"cookTime\" class=\"label\">Cook Time</label>\n        <div class=\"control\">\n          <input type=\"text\" class=\"input\" formControlName=\"cookTime\" />\n        </div>\n      </div>\n\n      <!--servings-->\n      <div class=\"field column\">\n        <label for=\"servings\" class=\"label\">Servings</label>\n        <div class=\"control\">\n          <input type=\"text\" class=\"input\" formControlName=\"servings\" />\n        </div>\n      </div>\n    </div>\n\n    <!--Image-->\n    <div class=\"field\">\n      <label for=\"image\" class=\"label\">Image</label>\n      <div class=\"control\">\n        <input type=\"text\" class=\"input\" formControlName=\"image\" />\n      </div>\n      <p class=\"help is-danger\" *ngIf=\"f.submitted && image.invalid\">\n        Recipe needs an image *image upload coming soon*\n      </p>\n    </div>\n\n    <!--Ingredients-->\n    <div class=\"field\">\n      <label for=\"ingredients\" class=\"label\">Ingredients</label>\n      <div class=\"control\">\n        <textarea class=\"input\" formControlName=\"ingredients\"></textarea>\n      </div>\n      <p class=\"help is-danger\" *ngIf=\"f.submitted && ingredients.invalid\">\n        Recipe needs ingredients\n      </p>\n    </div>\n    \n    <!--Directions-->\n    <div class=\"field\">\n      <label for=\"directions\" class=\"label\">Directions</label>\n      <div class=\"control\">\n        <textarea class=\"input\" formControlName=\"directions\" ></textarea>\n      </div>\n      <p class=\"help is-danger\" *ngIf=\"f.submitted && directions.invalid\">\n        Recipe needs directions\n      </p>\n    </div>\n    \n    <!--checkboxes-->\n    <h1 class=\"subtitle\">Select all that apply:</h1>\n    <div class=\"columns\">\n        <div class=\"column\">\n            <div class=\"field\">\n                <label for=\"appetizer\" class=\"label\">Appetizer</label>\n                <div class=\"control\">\n                  <input type=\"checkbox\" class=\"checkbox\" formControlName=\"appetizer\" />\n                </div>\n            </div>\n        \n            <div class=\"field\">\n                <label for=\"breakfast\" class=\"label\">Breakfast</label>\n                <div class=\"control\">\n                  <input type=\"checkbox\" class=\"checkbox\" formControlName=\"breakfast\" />\n                </div>\n            </div>\n        \n            <div class=\"field\">\n                <label for=\"dessert\" class=\"label\">Dessert</label>\n                <div class=\"control\">\n                  <input type=\"checkbox\" class=\"checkbox\" formControlName=\"dessert\" />\n                </div>\n            </div>\n        </div>\n        <div class=\"column\">\n            <div class=\"field\">\n                <label for=\"mainDish\" class=\"label\">Main Dish</label>\n                <div class=\"control\">\n                  <input type=\"checkbox\" class=\"checkbox\" formControlName=\"mainDish\" />\n                </div>\n            </div>\n        \n            <div class=\"field\">\n                <label for=\"salad\" class=\"label\">Salad</label>\n                <div class=\"control\">\n                  <input type=\"checkbox\" class=\"checkbox\" formControlName=\"salad\" />\n                </div>\n            </div>\n        \n            <div class=\"field\">\n                <label for=\"soup\" class=\"label\">soup</label>\n                <div class=\"control\">\n                  <input type=\"checkbox\" class=\"checkbox\" formControlName=\"soup\" />\n                </div>\n            </div>\n        </div>\n    \n        \n    \n        \n    </div>\n    <div class=\"field\">\n      <div class=\"control\">\n          <button class=\"button is-success\" type=\"submit\">Submit</button>\n      </div>\n  </div>\n  </form>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n  <div *ngIf=\"isEdit; then editRecipe; else addRecipe\"></div>\n  <ng-template #editRecipe>\n    <p class=\"title\">Edit Recipe</p>\n  </ng-template>\n  <ng-template #addRecipe>\n    <p class=\"title\">Add Recipe</p>\n  </ng-template>\n\n  <form #f=\"ngForm\" [formGroup]=\"recipeForm\" (ngSubmit)=\"submitForm(f)\">\n    <!--Title-->\n    <div class=\"field\">\n      <label for=\"title\" class=\"label\">Title</label>\n      <div class=\"control\">\n        <input type=\"text\" class=\"input\" formControlName=\"title\" />\n      </div>\n      <p class=\"help is-danger\" *ngIf=\"f.submitted && title.invalid\">\n        Recipe needs a name\n      </p>\n    </div>\n\n    <div class=\"columns\">\n      <!--prepTime-->\n      <div class=\"field column\">\n        <label for=\"prepTime\" class=\"label\">Prep Time</label>\n        <div class=\"control\">\n          <input type=\"text\" class=\"input\" formControlName=\"prepTime\" />\n        </div>\n      </div>\n\n      <!--cooktime-->\n      <div class=\"field column\">\n        <label for=\"cookTime\" class=\"label\">Cook Time</label>\n        <div class=\"control\">\n          <input type=\"text\" class=\"input\" formControlName=\"cookTime\" />\n        </div>\n      </div>\n\n      <!--servings-->\n      <div class=\"field column\">\n        <label for=\"servings\" class=\"label\">Servings</label>\n        <div class=\"control\">\n          <input type=\"text\" class=\"input\" formControlName=\"servings\" />\n        </div>\n      </div>\n    </div>\n\n    <!--Image-->\n    <div class=\"field\">\n      <label for=\"image\" class=\"label\">Image</label>\n      <div class=\"control\">\n        <input type=\"text\" class=\"input\" formControlName=\"image\" />\n      </div>\n      <p class=\"help is-danger\" *ngIf=\"f.submitted && image.invalid\">\n        Recipe needs an image: image upload coming soon\n      </p>\n    </div>\n\n    <!--Ingredients-->\n    <div class=\"field\">\n      <label for=\"ingredients\" class=\"label\">Ingredients</label>\n      <div class=\"control\">\n        <textarea class=\"input\" formControlName=\"ingredients\"></textarea>\n      </div>\n      <p class=\"help is-danger\" *ngIf=\"f.submitted && ingredients.invalid\">\n        Recipe needs ingredients\n      </p>\n    </div>\n    \n    <!--Directions-->\n    <div class=\"field\">\n      <label for=\"directions\" class=\"label\">Directions</label>\n      <div class=\"control\">\n        <textarea class=\"input\" formControlName=\"directions\" ></textarea>\n      </div>\n      <p class=\"help is-danger\" *ngIf=\"f.submitted && directions.invalid\">\n        Recipe needs directions\n      </p>\n    </div>\n    \n    <h3 class=\"subtitle is-danger\">Comming Soon:</h3>\n    <ul>\n      <li>ingredient component</li>\n      <li>direction component</li>\n      <li>image upload feature</li>\n    </ul>\n\n    <div class=\"field\">\n      <div class=\"control\">\n          <button class=\"button is-success\" type=\"submit\">Submit</button>\n      </div>\n  </div>\n  </form>\n</div>\n");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <div class=\"is-grouped is-grouped-left field\">\n        <div class=\"control\">\n            <button class=\"button is-primary\" routerLink=\"/recipes/new\" >Add Recipe</button><!--need to add routing-->\n        </div>\n    </div>\n    <div class=\"columns is-multiline\">\n        <recipe-list-item [recipe]=\"recipe\" class=\"column is-one-third\" *ngFor=\"let recipe of sortRecipes(recipes$ | async)\"></recipe-list-item>\n    </div>\n    \n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <div class=\"is-grouped is-grouped-left field\">\n        <div class=\"control\">\n            <button class=\"button is-info pad\" routerLink=\"/recipes/new\" >Add Recipe</button><!--need to add routing-->\n        </div>\n    </div>\n    <div class=\"columns is-multiline\">\n        <recipe-list-item [recipe]=\"recipe\" class=\"column is-one-third\" *ngFor=\"let recipe of sortRecipes(recipes$ | async)\"></recipe-list-item>\n    </div>\n    \n</div>\n");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <p class=\"title\">User Registration</p>\n    <p>If you do have a account please <a routerLink=\"/signin\" class=\"button is-success\">sign in</a></p>\n\n    <form #f=\"ngForm\" (ngSubmit)=\"submitForm(f)\" [formGroup]=\"userRegister\">\n        <div class=\"field\">\n            <label for=\"firstName\" class=\"label\">First Name</label>\n            <div class=\"control\">\n                <input type=\"text\" class=\"input\" formControlName=\"firstName\">\n            </div>\n            <p class=\"help is-danger\" *ngIf=\"f.submitted && firstName.invalid\">\n                First name is required\n            </p>\n        </div>\n\n        <div class=\"field\">\n            <label for=\"email\" class=\"label\">Email</label>\n            <div class=\"control\">\n                <input type=\"email\" class=\"input\" formControlName=\"email\">\n            </div>\n            <p class=\"help is-danger\" *ngIf=\"f.submitted && email.invalid\">\n                First name is required\n            </p>\n        </div>\n\n        <div class=\"field\">\n            <label for=\"password\" class=\"label\">Password</label>\n            <div class=\"control\">\n                <input type=\"password\" class=\"input\" formControlName=\"password\" required>\n            </div>\n            <p class=\"help is-danger\" *ngIf=\"f.submitted && password.invalid\">\n                Password is required\n            </p>\n        </div>\n\n        <div class=\"field\">\n            <div class=\"control\">\n                <button class=\"button is-primary\">Submit</button>\n                <button class=\"button\" routerLink=\"/recipes\">Cancel</button>\n            </div>\n        </div>\n        \n    </form>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <p class=\"title\">User Registration</p>\n    <p>If you do have a account please <a routerLink=\"/signin\" class=\"button is-success\">sign in</a></p>\n    <form #f=\"ngForm\" (ngSubmit)=\"submitForm(f)\" [formGroup]=\"userRegister\">\n        <div class=\"field\">\n            <label for=\"firstName\" class=\"label\">First Name</label>\n            <div class=\"control\">\n                <input type=\"text\" class=\"input\" formControlName=\"firstName\">\n            </div>\n            <p class=\"help is-danger\" *ngIf=\"f.submitted && firstName.invalid\">\n                First name is required\n            </p>\n        </div>\n        \n        <div class=\"field\">\n            <label for=\"LastName\" class=\"label\">Last Name</label>\n            <div class=\"control\">\n                <input type=\"text\" class=\"input\" formControlName=\"lastName\">\n            </div>\n            <p class=\"help is-danger\" *ngIf=\"f.submitted && lastName.invalid\">\n                Last name is required\n            </p>\n        </div>\n\n        <div class=\"field\">\n            <label for=\"email\" class=\"label\">Email</label>\n            <div class=\"control\">\n                <input type=\"text\" class=\"input\" formControlName=\"email\">\n            </div>\n            <p class=\"help is-danger\" *ngIf=\"f.submitted && email.invalid\">\n                First name is required\n            </p>\n        </div>\n\n        <div class=\"field\">\n            <label for=\"username\" class=\"label\">Username</label>\n            <div class=\"control\">\n                <input type=\"text\" class=\"input\" formControlName=\"username\" required>\n            </div>\n            <p class=\"help is-danger\" *ngIf=\"f.submitted && username.invalid\">\n                Username is required\n            </p>\n        </div>\n\n        <div class=\"field\">\n            <label for=\"password\" class=\"label\">Password</label>\n            <div class=\"control\">\n                <input type=\"password\" class=\"input\" formControlName=\"password\" required>\n            </div>\n            <p class=\"help is-danger\" *ngIf=\"f.submitted && password.invalid\">\n                Password is required\n            </p>\n        </div>\n\n        <div class=\"field\">\n            <div class=\"control\">\n                <button class=\"button is-primary\">Submit</button>\n                <button class=\"button\" routerLink=\"/recipes\">Cancel</button>\n            </div>\n        </div>\n        \n    </form>\n</div>");
 
 /***/ }),
 
@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <p class=\"title\">User sign in</p>\n    <p>If you don't have a account please \n      <a routerLink=\"/register\" class=\"button is-success\">Register</a>\n    </p>\n    <form #f=\"ngForm\" (ngSubmit)=\"submitForm(f)\">\n      <div class=\"field\">\n        <label for=\"email\" class=\"label\">Email</label>\n        <div class=\"control\">\n          <input type=\"email\" class=\"input\" name=\"email\" id=\"email\" \n            required #email=\"ngModel\" [(ngModel)]=\"user.email\">\n        </div>\n        <p class=\"help is-danger\" *ngIf=\"f.submitted && email.invalid\">\n          Email is required\n        </p>\n      </div>\n      <div class=\"field\">\n        <label for=\"password\" class=\"label\">Password</label>\n        <div class=\"control\">\n          <input type=\"password\" class=\"input\" name=\"password\" id=\"password\" \n            required #password=\"ngModel\" [(ngModel)]=\"user.password\">\n        </div>\n        <p class=\"help is-danger\" *ngIf=\"f.submitted && password.invalid\">\n          Password is required\n        </p>\n      </div>\n  \n      <div class=\"field\">\n        <div class=\"control\">\n          <button class=\"button is-primary\">Submit</button>\n          <button class=\"button\" routerLink=\"/recipes\">Cancel</button>\n        </div>\n      </div>\n    </form>\n  </div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n  <p class=\"title\">User sign in</p>\n  <p>If you don't have a account please \n    <a routerLink=\"/register\" class=\"button is-success\">Register</a>\n  </p>\n  <form #f=\"ngForm\" (ngSubmit)=\"submitForm(f)\">\n    <div class=\"field\">\n      <label for=\"username\" class=\"label\">Username</label>\n      <div class=\"control\">\n        <input type=\"text\" class=\"input\" name=\"username\" id=\"username\" \n          required #username=\"ngModel\" [(ngModel)]=\"user.username\">\n      </div>\n      <p class=\"help is-danger\" *ngIf=\"f.submitted && username.invalid\">\n        Username is required\n      </p>\n    </div>\n    <div class=\"field\">\n      <label for=\"password\" class=\"label\">Password</label>\n      <div class=\"control\">\n        <input type=\"password\" class=\"input\" name=\"password\" id=\"password\" \n          required #password=\"ngModel\" [(ngModel)]=\"user.password\">\n      </div>\n      <p class=\"help is-danger\" *ngIf=\"f.submitted && password.invalid\">\n        Password is required\n      </p>\n    </div>\n\n    <div class=\"field\">\n      <div class=\"control\">\n        <button class=\"button is-primary\">Submit</button>\n        <button class=\"button\" routerLink=\"/recipes\">Cancel</button>\n      </div>\n    </div>\n  </form>\n</div>\n");
 
 /***/ }),
 
@@ -377,9 +377,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _components_recipe_list_recipe_list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/recipe-list/recipe-list.component */ "./src/app/components/recipe-list/recipe-list.component.ts");
 /* harmony import */ var _components_recipe_fourm_recipe_fourm_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/recipe-fourm/recipe-fourm.component */ "./src/app/components/recipe-fourm/recipe-fourm.component.ts");
-/* harmony import */ var _components_recipe_detail_recipe_detail_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/recipe-detail/recipe-detail.component */ "./src/app/components/recipe-detail/recipe-detail.component.ts");
-/* harmony import */ var _components_user_register_user_register_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/user-register/user-register.component */ "./src/app/components/user-register/user-register.component.ts");
-/* harmony import */ var _components_user_signin_user_signin_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/user-signin/user-signin.component */ "./src/app/components/user-signin/user-signin.component.ts");
+/* harmony import */ var _services_auth_guard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/auth.guard */ "./src/app/services/auth.guard.ts");
+/* harmony import */ var _components_recipe_detail_recipe_detail_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/recipe-detail/recipe-detail.component */ "./src/app/components/recipe-detail/recipe-detail.component.ts");
+/* harmony import */ var _components_user_register_user_register_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/user-register/user-register.component */ "./src/app/components/user-register/user-register.component.ts");
+/* harmony import */ var _components_user_signin_user_signin_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/user-signin/user-signin.component */ "./src/app/components/user-signin/user-signin.component.ts");
+
 
 
 
@@ -391,11 +393,11 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     { path: "", redirectTo: "recipes", pathMatch: "full" },
     { path: 'recipes', component: _components_recipe_list_recipe_list_component__WEBPACK_IMPORTED_MODULE_3__["RecipeListComponent"] },
-    { path: 'recipes/new', component: _components_recipe_fourm_recipe_fourm_component__WEBPACK_IMPORTED_MODULE_4__["RecipeFourmComponent"] },
-    { path: 'recipes/:id', component: _components_recipe_detail_recipe_detail_component__WEBPACK_IMPORTED_MODULE_5__["RecipeDetailComponent"] },
-    { path: 'recipes/:id/edit', component: _components_recipe_fourm_recipe_fourm_component__WEBPACK_IMPORTED_MODULE_4__["RecipeFourmComponent"] },
-    { path: 'register', component: _components_user_register_user_register_component__WEBPACK_IMPORTED_MODULE_6__["UserRegisterComponent"] },
-    { path: 'signin', component: _components_user_signin_user_signin_component__WEBPACK_IMPORTED_MODULE_7__["UserSigninComponent"] }
+    { path: 'recipes/new', component: _components_recipe_fourm_recipe_fourm_component__WEBPACK_IMPORTED_MODULE_4__["RecipeFourmComponent"], canActivate: [_services_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
+    { path: 'recipes/:id', component: _components_recipe_detail_recipe_detail_component__WEBPACK_IMPORTED_MODULE_6__["RecipeDetailComponent"] },
+    { path: 'recipes/:id/edit', component: _components_recipe_fourm_recipe_fourm_component__WEBPACK_IMPORTED_MODULE_4__["RecipeFourmComponent"], canActivate: [_services_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
+    { path: 'register', component: _components_user_register_user_register_component__WEBPACK_IMPORTED_MODULE_7__["UserRegisterComponent"] },
+    { path: 'signin', component: _components_user_signin_user_signin_component__WEBPACK_IMPORTED_MODULE_8__["UserSigninComponent"] }
 ];
 //, canActivate: [AuthGuard]
 let AppRoutingModule = class AppRoutingModule {
@@ -562,7 +564,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".cookTime ul {\n  display: inline-flex;\n  flex-direction: column; }\n\n.cookTime ul li {\n  text-align: left; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZWNpcGUtZGV0YWlsL0U6XFxDb21wdXRlclNjaWVuY2VcXEJTXFxXRUIzNDIwLU1FQU5TdGFja0RldmVsb3BtZW50XFx3ZWIzNDMwLWZpbmFsLXByb2plY3QtZGFuaWVsY2hpbGQxXFxuZy9zcmNcXGFwcFxcY29tcG9uZW50c1xccmVjaXBlLWRldGFpbFxccmVjaXBlLWRldGFpbC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLG9CQUFvQjtFQUNwQixzQkFBc0IsRUFBQTs7QUFHMUI7RUFDSSxnQkFBZ0IsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVjaXBlLWRldGFpbC9yZWNpcGUtZGV0YWlsLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvb2tUaW1lIHVse1xyXG4gICAgZGlzcGxheTogaW5saW5lLWZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG59XHJcblxyXG4uY29va1RpbWUgdWwgbGl7XHJcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".cookTime ul {\n  display: inline-flex;\n  flex-direction: column; }\n\n.cookTime ul li {\n  text-align: left; }\n\n.pad {\n  margin-top: 20px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZWNpcGUtZGV0YWlsL0U6XFxDb21wdXRlclNjaWVuY2VcXEJTXFxXRUIzNDIwLU1FQU5TdGFja0RldmVsb3BtZW50XFx3ZWIzNDMwLWZpbmFsLXByb2plY3QtZGFuaWVsY2hpbGQxXFxuZy9zcmNcXGFwcFxcY29tcG9uZW50c1xccmVjaXBlLWRldGFpbFxccmVjaXBlLWRldGFpbC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLG9CQUFvQjtFQUNwQixzQkFBc0IsRUFBQTs7QUFHMUI7RUFDSSxnQkFBZ0IsRUFBQTs7QUFHcEI7RUFDSSxnQkFBZ0IsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVjaXBlLWRldGFpbC9yZWNpcGUtZGV0YWlsLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvb2tUaW1lIHVse1xyXG4gICAgZGlzcGxheTogaW5saW5lLWZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG59XHJcblxyXG4uY29va1RpbWUgdWwgbGl7XHJcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG59XHJcblxyXG4ucGFke1xyXG4gICAgbWFyZ2luLXRvcDogMjBweDtcclxufSJdfQ== */");
 
 /***/ }),
 
@@ -661,6 +663,7 @@ let RecipeFourmComponent = class RecipeFourmComponent {
         this.toastr = toastr;
     }
     ngOnInit() {
+        console.log("Checkpoint 1");
         this.recipeForm = this.fb.group({
             id: [null],
             title: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
@@ -669,17 +672,11 @@ let RecipeFourmComponent = class RecipeFourmComponent {
             servings: [null],
             ingredients: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
             directions: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            image: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            appetizer: [null],
-            breakfast: [null],
-            dessert: [null],
-            mainDish: [null],
-            salad: [null],
-            soup: [null],
+            image: [null],
         });
         this.isEdit = !!this.route.snapshot.params["id"];
         if (this.isEdit) {
-            this.RecipeService.getRecipe(this.route.snapshot.params["id"]).subscribe((c) => this.recipeForm.patchValue(c));
+            this.RecipeService.getRecipe(this.route.snapshot.params["id"]).subscribe((c) => { this.recipeForm.patchValue(c); });
         }
     }
     get title() { return this.recipeForm.get('title'); }
@@ -688,23 +685,20 @@ let RecipeFourmComponent = class RecipeFourmComponent {
     get servings() { return this.recipeForm.get('servings'); }
     get ingredients() { return this.recipeForm.get('ingredients'); }
     get directions() { return this.recipeForm.get('directions'); }
-    get Appetizer() { return this.recipeForm.get('appetizer'); }
-    get Breakfast() { return this.recipeForm.get('breakfast'); }
-    get Dessert() { return this.recipeForm.get('dessert'); }
-    get MainDish() { return this.recipeForm.get('mainDish'); }
-    get Salad() { return this.recipeForm.get('salad'); }
-    get Soup() { return this.recipeForm.get('soup'); }
     submitForm(f) {
+        console.log("Checkpoint 2");
         if (f.valid) {
             const cake = Object.assign({}, this.recipeForm.value);
             cake.updated_at = new Date();
             if (this.isEdit) {
+                console.log("Checkpoint 3");
                 this.RecipeService.updateRecipe(cake).subscribe(date => {
                     this.toastr.success("Updated Successfully");
                     this.router.navigate([`/recipes/${cake.id}`]);
                 });
             }
             else {
+                console.log("Checkpoint 4");
                 cake.added_at = cake.updated_at;
                 this.RecipeService.addRecipe(cake).subscribe(data => {
                     this.toastr.success("Added Successfully");
@@ -800,7 +794,7 @@ RecipeListItemComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVjaXBlLWxpc3QvcmVjaXBlLWxpc3QuY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".pad {\n  margin-top: 15px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZWNpcGUtbGlzdC9FOlxcQ29tcHV0ZXJTY2llbmNlXFxCU1xcV0VCMzQyMC1NRUFOU3RhY2tEZXZlbG9wbWVudFxcd2ViMzQzMC1maW5hbC1wcm9qZWN0LWRhbmllbGNoaWxkMVxcbmcvc3JjXFxhcHBcXGNvbXBvbmVudHNcXHJlY2lwZS1saXN0XFxyZWNpcGUtbGlzdC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGdCQUFnQixFQUFBIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9yZWNpcGUtbGlzdC9yZWNpcGUtbGlzdC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5wYWR7XHJcbiAgICBtYXJnaW4tdG9wOiAxNXB4O1xyXG59Il19 */");
 
 /***/ }),
 
@@ -893,7 +887,9 @@ let UserRegisterComponent = class UserRegisterComponent {
         this.userRegister = this.fb.group({
             _id: [null],
             firstName: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+            lastName: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             email: [null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern(/.+@.+\..+/)]],
+            username: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             password: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
         });
     }
@@ -901,15 +897,17 @@ let UserRegisterComponent = class UserRegisterComponent {
         if (f.valid) {
             const user = Object.assign({}, this.userRegister.value);
             this.userService.register(user).subscribe(res => {
-                this.toastr.success("Successfully registered");
+                this.toastr.success("Successfully signed in");
                 this.router.navigate(["/recipes"]);
             }, err => {
-                this.toastr.error("Unable to register");
+                this.toastr.error("Unable to sign in");
             });
         }
     }
     get firstName() { return this.userRegister.get('firstName'); }
+    get lastName() { return this.userRegister.get('lastName'); }
     get email() { return this.userRegister.get('email'); }
+    get username() { return this.userRegister.get('username'); }
     get password() { return this.userRegister.get('password'); }
 };
 UserRegisterComponent.ctorParameters = () => [
@@ -1020,6 +1018,49 @@ class User {
 
 /***/ }),
 
+/***/ "./src/app/services/auth.guard.ts":
+/*!****************************************!*\
+  !*** ./src/app/services/auth.guard.ts ***!
+  \****************************************/
+/*! exports provided: AuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user.service */ "./src/app/services/user.service.ts");
+
+
+
+
+let AuthGuard = class AuthGuard {
+    constructor(router) {
+        this.router = router;
+    }
+    canActivate(route, state) {
+        if (_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"].isAuthenticated()) {
+            return true;
+        }
+        this.router.navigate(["/signin"]);
+        return false;
+    }
+};
+AuthGuard.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], AuthGuard);
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/recipe.service.ts":
 /*!********************************************!*\
   !*** ./src/app/services/recipe.service.ts ***!
@@ -1054,10 +1095,12 @@ let RecipeService = class RecipeService {
         return this.http.get(this.recipeUrl);
     }
     addRecipe(r) {
+        console.log("Checkpoint 6");
         return this.http.post(this.recipeUrl, r, httpHeaders);
     }
     updateRecipe(r) {
         let url = `${this.recipeUrl}/${r.id}`;
+        //this.http.put<Recipe>(url, r, httpHeaders).subscribe(title => console.log(title))//trouble shooting
         return this.http.put(url, r, httpHeaders);
     }
 };

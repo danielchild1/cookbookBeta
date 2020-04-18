@@ -39,7 +39,7 @@ export const createRecipeAPI = (req, res, next) =>{
 }
 
 export const changeRecipeAPI = (req, res, next) => {
-    Recipe.findOne({id: req.params.id}).exec((err, recipe)=>{
+    Recipe.findOne({_id: req.params.id}).exec((err, recipe)=>{
         if(err){
             res.json({success: false, message: 'Failed query'})
             res.end()

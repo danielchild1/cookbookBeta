@@ -13,6 +13,7 @@ import { Recipe } from "src/app/models/recipes";
 export class RecipeFourmComponent implements OnInit {
   recipeForm: FormGroup;
   isEdit: boolean;
+
   constructor(
     private route: ActivatedRoute,
     private RecipeService: RecipeService,
@@ -22,6 +23,7 @@ export class RecipeFourmComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log("Checkpoint 1")
     this.recipeForm = this.fb.group({
       id: [null],
       title: [null, Validators.required],
@@ -30,20 +32,14 @@ export class RecipeFourmComponent implements OnInit {
       servings: [null],
       ingredients: [null, Validators.required],
       directions: [null, Validators.required],
-      image: [null, Validators.required],
-      appetizer: [null],
-      breakfast: [null],
-      dessert: [null],
-      mainDish: [null],
-      salad: [null],
-      soup: [null],
+      image: [null],
     });
 
     this.isEdit = !!this.route.snapshot.params["id"];
     if (this.isEdit) {
       this.RecipeService.getRecipe(
         this.route.snapshot.params["id"]
-      ).subscribe((c) => this.recipeForm.patchValue(c));
+      ).subscribe((c) => {this.recipeForm.patchValue(c)});
     }
   }
   get title() {return this.recipeForm.get('title')}
@@ -52,24 +48,21 @@ export class RecipeFourmComponent implements OnInit {
   get servings() {return this.recipeForm.get('servings')}
   get ingredients() {return this.recipeForm.get('ingredients')}
   get directions() {return this.recipeForm.get('directions')}
-  get Appetizer() {return this.recipeForm.get('appetizer')}
-  get Breakfast() {return this.recipeForm.get('breakfast')}
-  get Dessert() {return this.recipeForm.get('dessert')}
-  get MainDish() {return this.recipeForm.get('mainDish')}
-  get Salad() {return this.recipeForm.get('salad')}
-  get Soup() {return this.recipeForm.get('soup')}
 
   submitForm(f: NgForm){
+    console.log("Checkpoint 2")
     if(f.valid){
       const cake: Recipe = Object.assign({}, this.recipeForm.value)
       cake.updated_at = new Date()
       if(this.isEdit){
+        console.log("Checkpoint 3")
         this.RecipeService.updateRecipe(cake).subscribe(date =>{
           this.toastr.success("Updated Successfully")
           this.router.navigate([`/recipes/${cake.id}`])
         })
       }
       else{
+        console.log("Checkpoint 4")
         cake.added_at = cake.updated_at
         this.RecipeService.addRecipe(cake).subscribe(data =>{
           this.toastr.success("Added Successfully")
@@ -78,4 +71,6 @@ export class RecipeFourmComponent implements OnInit {
       }
     }
   }
+
+ 
 }

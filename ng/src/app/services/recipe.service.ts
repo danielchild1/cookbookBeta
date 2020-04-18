@@ -26,11 +26,13 @@ export class RecipeService {
   }
 
   addRecipe(r : Recipe) : Observable<Recipe>{
+    console.log("Checkpoint 6")
     return this.http.post<Recipe>(this.recipeUrl, r, httpHeaders)
   }
 
   updateRecipe(r: Recipe): Observable<Recipe>{
     let url = `${this.recipeUrl}/${r.id}`
+    //this.http.put<Recipe>(url, r, httpHeaders).subscribe(title => console.log(title))//trouble shooting
     return this.http.put<Recipe>(url, r, httpHeaders)
   }
 

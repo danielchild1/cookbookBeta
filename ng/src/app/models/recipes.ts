@@ -1,22 +1,15 @@
 export class Recipe{
     id: number
     title: string
-    description: string
+    directions: string
+    ingredients: string
     cookTime: string
     prepTime: string
     servings: string
     image: string
     added_at: Date
     updated_at: Date
-    Archived: Boolean
-    Breakfast: Boolean
-    Appetizer: Boolean
-    Dessert: Boolean
-    MainDish: Boolean
-    Salad: Boolean
-    Soup: Boolean
-    ingredients: String
-    directions: String
+   
 }
 
 // title: String,

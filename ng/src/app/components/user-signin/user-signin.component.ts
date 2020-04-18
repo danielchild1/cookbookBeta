@@ -11,9 +11,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./user-signin.component.scss']
 })
 export class UserSigninComponent implements OnInit {
-  user: User = new User()
-  constructor(private userService: UserService, private router: Router,
-    private toastr: ToastrService) { }
+  user : User = new User()
+  constructor(private userService : UserService, private router : Router, 
+    private toastr : ToastrService) { }
 
   ngOnInit() {
   }
@@ -32,5 +32,4 @@ export class UserSigninComponent implements OnInit {
     }
 
   }
-
 }

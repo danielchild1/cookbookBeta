@@ -3,26 +3,14 @@ const Schema = mongoose.Schema
 
 let recipeSchema = new Schema({
     title: String,
-    description: String,
     cookTime: String,
     prepTime: String,
     servings: String,
     image: String,
     added_at: Date,
     updated_at: Date,
-    Archived: Boolean,
-    Breakfast: Boolean,
-    Appetizer: Boolean,
-    Dessert: Boolean,
-    MainDish: Boolean,
-    Salad: Boolean,
-    Soup: Boolean,
-    //Im not sure if the is the best way to do this
-    //ingredients: [{type: Schema.Types.ObjectId, ref: "Ingredient"}],
-   /// directions: [{type: Schema.Types.ObjectId, ref: "Direction"}],
-    //tags: [{type: Schema.Types.ObjectId, ref: "Tag"}]
     ingredients: String,
-    Directions: String
+    directions: String
 
 })
 recipeSchema.virtual('id').get(function(){
@@ -36,29 +24,20 @@ recipeSchema.set('toJSON', {
     }
 })
 
-// let ingredientSchema = new Schema({
-//     id: Number,
-//     text: String,
-//     added_at: Date,
-//     updated_at: Date
-// })
 
-
-// let directionsSchema = new Schema({
-//     id: Number,
-//     orderNumber: Number,
-//     text: String,
-//     added_at: Date,
-//     updated_at: Date
-// })
-
-
-// let tagSchema = new Schema({
-//     id: Number,
-//     tag: String,
-// })
-
-// export let Tag = mongoose.model("Tag", tagSchema)
-// export let Direction = mongoose.model("Direction", directionsSchema)
 export let Recipe = mongoose.model("Recipe", recipeSchema)
 //export let Ingredient = mongoose.model("Ingredients", ingredientSchema)
+
+// export class Recipe{
+//     id: number
+//     title: string
+//     directions: string
+//     ingredients: string
+//     cookTime: string
+//     prepTime: string
+//     servings: string
+//     image: string
+//     added_at: Date
+//     updated_at: Date
+   
+// }
