@@ -1,11 +1,11 @@
 <div class="container">
     <div class="is-grouped is-grouped-left field">
         <div class="control">
-            <button class="button is-primary">Add Recipe</button><!--need to add routing-->
+            <button class="button is-primary" routerLink="/recipes/new" >Add Recipe</button><!--need to add routing-->
         </div>
     </div>
     <div class="columns is-multiline">
-        <recipe-list-item [recipe]="recipe" class="column is-one-third" *ngFor="let r of sortRecipes(recipe$ | async)"></recipe-list-item>
+        <recipe-list-item [recipe]="recipe" class="column is-one-third" *ngFor="let recipe of sortRecipes(recipes$ | async)"></recipe-list-item>
     </div>
     
 </div>

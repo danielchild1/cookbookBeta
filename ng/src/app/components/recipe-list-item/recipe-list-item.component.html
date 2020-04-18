@@ -1,9 +1,8 @@
-<a routerLink="/recipes/{{recipe.id}}/"></a>
-<div class="card" id={{recipe.id}}>
+<div class="card" id={{recipe.id}} routerLink="/recipes/{{recipe.id}}/">
     <!--Image layout-->
   <div class="card-image">
     <figure class="image is-4by3">
-      <img src="{{recipe.image}}" alt="{{recipe.image}} picture">
+      <img src="{{recipe.image}}" alt="{{recipe.title}} picture">
     </figure>
   </div>
 

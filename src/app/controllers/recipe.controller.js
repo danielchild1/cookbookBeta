@@ -14,7 +14,7 @@ export const allRecipesAPI = (req, res, next) =>{
 }
 
 export const oneRecipeAPI = (req, res, next) =>{
-    Recipe.findOne({id: req.params.id}).exec((err, recipe)=>{
+    Recipe.findOne({_id: req.params.id}).exec((err, recipe)=>{
         if(err){
             res.json({success: false, message: 'Failed query'})
             res.end()

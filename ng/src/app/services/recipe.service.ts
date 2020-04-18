@@ -9,9 +9,7 @@ const httpHeaders = {
   })
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class RecipeService {
 
   recipeUrl = "/api/recipes"
@@ -20,7 +18,7 @@ export class RecipeService {
 
   getRecipe(id): Observable<Recipe>{
     let url = `${this.recipeUrl}/${id}`
-    return this.http.get<Recipe>(id)
+    return this.http.get<Recipe>(url)
   }
 
   getRecipes(): Observable<Recipe[]>{

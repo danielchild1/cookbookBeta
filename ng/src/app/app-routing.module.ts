@@ -11,14 +11,16 @@ import { UserSigninComponent } from './components/user-signin/user-signin.compon
 const routes: Routes = [
   {path: "", redirectTo: "recipes", pathMatch: "full"},
   {path: 'recipes', component: RecipeListComponent},
-  {path: 'recipes/new', component: RecipeFourmComponent, canActivate: [AuthGuard]},
+  {path: 'recipes/new', component: RecipeFourmComponent},
   {path: 'recipes/:id', component: RecipeDetailComponent},
-  {path: 'recipes/:id/edit', component: RecipeFourmComponent, canActivate: [AuthGuard]},
+  {path: 'recipes/:id/edit', component: RecipeFourmComponent},
   {path: 'register', component: UserRegisterComponent},
   {path: 'signin', component: UserSigninComponent}
 ];
+//, canActivate: [AuthGuard]
 
 @NgModule({
+  declarations: [],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

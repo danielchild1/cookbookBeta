@@ -10,14 +10,19 @@ let recipeSchema = new Schema({
     image: String,
     added_at: Date,
     updated_at: Date,
-    isArchived: Boolean,
+    Archived: Boolean,
+    Breakfast: Boolean,
+    Appetizer: Boolean,
+    Dessert: Boolean,
+    MainDish: Boolean,
+    Salad: Boolean,
+    Soup: Boolean,
     //Im not sure if the is the best way to do this
     //ingredients: [{type: Schema.Types.ObjectId, ref: "Ingredient"}],
    /// directions: [{type: Schema.Types.ObjectId, ref: "Direction"}],
     //tags: [{type: Schema.Types.ObjectId, ref: "Tag"}]
-    ingredients: [{type: String, ref: "ingredients"}],
-    directions: [{type: String, ref: "direction"}],
-    tags: [{type: String, ref: "tag"}]
+    ingredients: String,
+    Directions: String
 
 })
 recipeSchema.virtual('id').get(function(){

@@ -14,7 +14,7 @@ const httpHeaders = {
 export class UserService {
     constructor(private http: HttpClient, private cookieService : CookieService){}
 
-    register(user: User){
+    register(user: User) : any{
         return this.http.post("/api/users/register", user, httpHeaders)
     }
 

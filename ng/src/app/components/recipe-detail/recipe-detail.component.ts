@@ -13,10 +13,15 @@ export class RecipeDetailComponent implements OnInit {
   recipe$: Observable<Recipe>
   @Input() recipe: Recipe
   @Output() select = new EventEmitter<Recipe>();
+  
   constructor(private recipeService : RecipeService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    
     this.recipe$ = this.recipeService.getRecipe(this.route.snapshot.params['id'])
+    
+    this.recipeService.getRecipe(this.route.snapshot.params['id']).subscribe(id => console.log(id))
+
   }
 
 }

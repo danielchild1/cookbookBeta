@@ -7,7 +7,7 @@
     <p class="title">Add Recipe</p>
   </ng-template>
 
-  <form #f="ngForm" [formGroup]="recipeFourm" (ngSubmit)="submitForm(f)">
+  <form #f="ngForm" [formGroup]="recipeForm" (ngSubmit)="submitForm(f)">
     <!--Title-->
     <div class="field">
       <label for="title" class="label">Title</label>
@@ -56,59 +56,50 @@
       </p>
     </div>
 
-    <!--ingredients-->
-    <h1 class="subtitle">Ingredients</h1>
-    <div ng-controller="ingredient">
-      <div ng-repeat="ingredient in recipe.ingredients">
-        <!--ingredient-->
-        <div class="field">
-          <div class="control">
-            <input type="text" class="input" formControlName="ingredient" ng-model="ingredient" />
-          </div>
-        </div>
-
+    <!--Ingredients-->
+    <div class="field">
+      <label for="ingredients" class="label">Ingredients</label>
+      <div class="control">
+        <textarea class="input" formControlName="ingredients"></textarea>
       </div>
-      <button class="button" ng-click="addIngredient()">Add Ingredient</button>
+      <p class="help is-danger" *ngIf="f.submitted && ingredients.invalid">
+        Recipe needs ingredients
+      </p>
+    </div>
     
-
-    <!--directions-->
-    <h1 class="subtitle">Directions</h1>
-    <div ng-controller="direction">
-      <div ng-repeat="direction in recipe.directions">
-        <!--directions-->
-        <div class="field">
-          <div class="control">
-            <input type="text" class="input" formControlName="direction" ng-model="direction"/>
-          </div>
-        </div>
-
+    <!--Directions-->
+    <div class="field">
+      <label for="directions" class="label">Directions</label>
+      <div class="control">
+        <textarea class="input" formControlName="directions" ></textarea>
       </div>
-      <button class="button" ng-click="addDirection()">Add Direction</button>
+      <p class="help is-danger" *ngIf="f.submitted && directions.invalid">
+        Recipe needs directions
+      </p>
     </div>
-    </div>
-
+    
     <!--checkboxes-->
     <h1 class="subtitle">Select all that apply:</h1>
     <div class="columns">
         <div class="column">
             <div class="field">
-                <label for="appatizer" class="label">Appetizer</label>
+                <label for="appetizer" class="label">Appetizer</label>
                 <div class="control">
-                  <input type="checkbox" class="input" formControlName="appatizer" />
+                  <input type="checkbox" class="checkbox" formControlName="appetizer" />
                 </div>
             </div>
         
             <div class="field">
                 <label for="breakfast" class="label">Breakfast</label>
                 <div class="control">
-                  <input type="checkbox" class="input" formControlName="breakfast" />
+                  <input type="checkbox" class="checkbox" formControlName="breakfast" />
                 </div>
             </div>
         
             <div class="field">
                 <label for="dessert" class="label">Dessert</label>
                 <div class="control">
-                  <input type="checkbox" class="input" formControlName="dessert" />
+                  <input type="checkbox" class="checkbox" formControlName="dessert" />
                 </div>
             </div>
         </div>
@@ -116,33 +107,33 @@
             <div class="field">
                 <label for="mainDish" class="label">Main Dish</label>
                 <div class="control">
-                  <input type="checkbox" class="input" formControlName="mainDish" />
+                  <input type="checkbox" class="checkbox" formControlName="mainDish" />
                 </div>
             </div>
         
             <div class="field">
                 <label for="salad" class="label">Salad</label>
                 <div class="control">
-                  <input type="checkbox" class="input" formControlName="salad" />
+                  <input type="checkbox" class="checkbox" formControlName="salad" />
                 </div>
             </div>
         
             <div class="field">
                 <label for="soup" class="label">soup</label>
                 <div class="control">
-                  <input type="checkbox" class="input" formControlName="soup" />
+                  <input type="checkbox" class="checkbox" formControlName="soup" />
                 </div>
             </div>
         </div>
     
         
     
-        <div class="field">
-            <div class="control">
-                <button class="button is-success" type="submit"></button>
-            </div>
-        </div>
+        
     </div>
-    
+    <div class="field">
+      <div class="control">
+          <button class="button is-success" type="submit">Submit</button>
+      </div>
+  </div>
   </form>
 </div>

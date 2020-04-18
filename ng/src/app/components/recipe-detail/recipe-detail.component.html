@@ -1,25 +1,21 @@
-<div class="container" *ngIf="recipe$ | async as recipe">
-    <img src="{{recipe.image}}" alt="{{recipe.title}}">
+<div class="container" *ngIf="recipe$ | async as r">
+    <img class= "is-2by1" src="{{r.image}}" alt="{{r.title}}">
     <div class="has-text-centered">
-        <h1 class="title">{{recipe.title}}</h1>
+        <h1 class="title">{{r.title}}</h1>
         <ul class="cookTime">
-            <li ng-hide="recipe.prepTime == null">Prep Time: {{recipe.prepTime}}</li>
-            <li ng-hide="recipe.cookTime == null">Cook Time: {{recipe.cookTime}}</li>
-            <li ng-hide="recipe.servings == null">Servings: {{recipe.servings}}</li>
+            <li ng-hide="r.prepTime == null"><strong>Prep Time:</strong> {{r.prepTime}}</li>
+            <li ng-hide="r.cookTime == null"><strong>Cook Time:</strong> {{r.cookTime}}</li>
+            <li ng-hide="r.servings == null"><strong>Servings:</strong> {{r.servings}}</li>
         </ul>
     </div>
     <!--populate the list of ingredients-->
     <h3 class="subtitle">Ingredients</h3>
-    <ul>
-        <li *ngFor="let ingredient of recipe.Ingredients">{{ingredient}}</li>
-    </ul>
+    <p>{{r.ingredients}}</p>
     <!--populate the list of directions-->
-    <h3 class="subtitle">Direction</h3>
-    <ol>
-        <li *ngFor="let dir of recipe.Directions">{{dir}}</li>
-    </ol>
+    <h3 class="subtitle">Directions</h3>
+    <p>{{r.directions}}</p>
 
-    <a routerLink="/recipes/{{recipe.id}}/edit" class="button">Edit Recipe</a>
+    <a routerLink="/recipes/{{r.id}}/edit" class="button">Edit Recipe</a>
 
 </div>
 <!--cookTime: String,
